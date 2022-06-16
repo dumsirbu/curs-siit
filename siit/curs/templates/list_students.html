@@ -6,7 +6,11 @@
     <body>
         <div>
            Lista Studenti 
-           {{ mesaj }}
+           <ol>
+           {% for student in studenti %}
+              <li>{{ student.nume }} {{ student.prenume }}</li>
+           {% endfor %}
+           </ol>
         </div>
     </body>
 </html>
