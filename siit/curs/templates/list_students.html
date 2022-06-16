@@ -9,6 +9,8 @@
            <ol>
            {% for student in studenti %}
               <li>{{ student.nume }} {{ student.prenume }}</li>
+           {% empty %}
+              <li> Nu sunt studenti</li>
            {% endfor %}
            </ol>
         </div>
