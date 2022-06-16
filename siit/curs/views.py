@@ -8,7 +8,7 @@ def hello_world(request):
     return HttpResponse("Hello World!")
 
 def show_students(request):
-    an_cerut = request.GET['an']
+    an_cerut = int(request.GET['an'])
     lista_studenti = Student.objects.filter(an=an_cerut)
     context = {
         'studenti': lista_studenti,
