@@ -10,4 +10,4 @@ def hello_world(request):
 def show_students(request):
     lista_studenti = Student.objects.all()
     studenti = "<br/>".join(s.nume for s in lista_studenti)
-    return HttpResponse(studenti)
+    return render(request, "list_students.html")
