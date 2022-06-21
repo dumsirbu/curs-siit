@@ -5,7 +5,7 @@ from django.db import models
 class Student(models.Model):
     nume = models.CharField(max_length=50, db_index=True)
     prenume = models.CharField(max_length=50, null=True)
-    an = models.IntegerField()
+    an = models.IntegerField(default=1)
     email = models.EmailField(unique=True)
     telefon = models.CharField(max_length=50, null=True)
 
