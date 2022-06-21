@@ -5,6 +5,9 @@ class Curs(models.Model):
     nume = models.CharField(max_length=50)
     an = models.IntegerField()
 
+    def __str__(self):
+        return f"{self.nume} - {self.an}"
+
 class Student(models.Model):
     class Meta:
         unique_together = ("nume", "prenume")
@@ -15,6 +18,7 @@ class Student(models.Model):
     an = models.IntegerField(default=1)
     email = models.EmailField(unique=True)
     telefon = models.CharField(max_length=50, null=True)
+    cursuri = models.ManyToManyField(Curs)
 
     def __str__(self):
         return f"{self.nume} {self.email}"
