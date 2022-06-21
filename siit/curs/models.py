@@ -5,6 +5,7 @@ from django.db import models
 class Student(models.Model):
     class Meta:
         unique_together = ("nume", "prenume")
+        ordering = ["nume", "prenume", "-an"]
 
     nume = models.CharField(max_length=50, db_index=True)
     prenume = models.CharField(max_length=50, null=True)
