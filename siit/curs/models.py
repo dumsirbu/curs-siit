@@ -1,6 +1,9 @@
 from django.db import models
 
 # Create your models here.
+class Curs(models.Model):
+    nume = models.CharField(max_length=50)
+    an = models.IntegerField()
 
 class Student(models.Model):
     class Meta:
@@ -19,6 +22,17 @@ class Student(models.Model):
     def afiseaza_studenti(self):
         pass
 
-class Curs(models.Model):
-    nume = models.CharField(max_length=50)
-    an = models.IntegerField()
+
+class Question(models.Model):
+    text = models.CharField(max_length=50)
+
+    def __str__(self):
+        return f"Question {self.text}"
+
+class Choice(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    choice_text = models.CharField(max_length=25)
+    correct = models.BooleanField()
+
+    def __str__(self):
+        return f"Choice {self.choice_text} Question {self.question}"

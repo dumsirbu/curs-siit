@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Student, Curs
+from .models import Student, Curs, Question, Choice
 
 class StudentAdmin(admin.ModelAdmin):
     list_display = ('nume', 'prenume', 'an', 'email')
@@ -9,4 +9,7 @@ class StudentAdmin(admin.ModelAdmin):
 admin.site.register(Student, StudentAdmin)
 
 admin.site.register(Curs)
+
+admin.site.register(Question)
+admin.site.register(Choice)
 
