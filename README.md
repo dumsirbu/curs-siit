@@ -1,7 +1,7 @@
 Comenzi pentru pornire proiect
 
 ```bash
-pip install django
+pip install -r requirements.txt
 cd siit
 python manage.py migrate
 python manage.py runserver
