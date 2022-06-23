@@ -31,7 +31,7 @@ def show_students(request):
         print(sterge)
         lista_studenti.delete()
         #  Student.objects.delete() - va sterge toate intrarile
-    lista_studenti = lista_studenti.order_by("-nume")
+    lista_studenti = lista_studenti.order_by("-nume").prefetch_related("cursuri")
 
     #lista_studenti = Student.objects.boboci()
 
