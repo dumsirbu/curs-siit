@@ -21,9 +21,8 @@ def show_students(request):
         lista_studenti = lista_studenti.filter(nume__startswith=nume)
     except KeyError:
         pass
-
-    Student.objects.filter(Q(nume=nume) | Q(an=2))
-
+    
+    lista_studenti = lista_studenti.order_by("-nume")
     context = {
         'studenti': lista_studenti,
         'mesaj': 'Salut'
