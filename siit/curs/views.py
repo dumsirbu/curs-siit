@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import render
 
@@ -20,6 +21,8 @@ def show_students(request):
         lista_studenti = lista_studenti.filter(nume__startswith=nume)
     except KeyError:
         pass
+
+    Student.objects.filter(Q(nume=nume) | Q(an=2))
 
     context = {
         'studenti': lista_studenti,
