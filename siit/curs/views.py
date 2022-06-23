@@ -25,12 +25,19 @@ def show_students(request):
     promoveaza = request.GET.get("promoveaza")
     if promoveaza is not None:
         lista_studenti.update(an=2)
+        # Student.objects.update(an=2) - va modifica toate intrarile din DB
+    sterge = request.GET.get("sterge")
+    if sterge is not None:
+        print(sterge)
+        lista_studenti.delete()
+        #  Student.objects.delete() - va sterge toate intrarile
     lista_studenti = lista_studenti.order_by("-nume")
 
     context = {
         'studenti': lista_studenti,
         'mesaj': 'Salut'
     }
+
     return render(request, "list_students.html", context)
 
 
