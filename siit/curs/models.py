@@ -28,7 +28,8 @@ class Student(models.Model):
     objects = StudentManager()
 
     def __str__(self):
-        return f"{self.nume} {self.email}"
+        cursuri = self.cursuri.count()
+        return f"{self.nume} {self.email} {cursuri}"
 
     def afiseaza_studenti(self):
         pass
