@@ -31,6 +31,8 @@ def show_students(request):
 
 
 def show_curs(request):
+    # import pdb; pdb.set_trace()
+    # import ipdb; ipdb.set_trace() # pip install ipdb
     id_curs = int(request.GET.get('curs', 0))
     curs = Curs.objects.get(id=id_curs)
     studenti = curs.student_set.all()
