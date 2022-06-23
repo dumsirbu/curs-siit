@@ -11,10 +11,16 @@ def hello_world(request):
 def show_students(request):
     try:
         an_cerut = int(request.GET['an'])
-        nume = request.GET['nume']
-        lista_studenti = Student.objects.filter(an__lte=an_cerut, nume__startswith=nume)
+        lista_studenti = Student.objects.filter(an__lte=an_cerut,)
     except KeyError:
         lista_studenti = Student.objects.all()
+
+    try:
+        nume = request.GET['nume']
+        lista_studenti = lista_studenti.filter(nume__startswith=nume)
+    except KeyError:
+        pass
+
     context = {
         'studenti': lista_studenti,
         'mesaj': 'Salut'
