@@ -22,7 +22,11 @@ def show_students(request):
     except KeyError:
         pass
     
+    promoveaza = request.GET.get("promoveaza")
+    if promoveaza is not None:
+        lista_studenti.update(an=2)
     lista_studenti = lista_studenti.order_by("-nume")
+
     context = {
         'studenti': lista_studenti,
         'mesaj': 'Salut'
