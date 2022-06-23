@@ -51,3 +51,8 @@ class Choice(models.Model):
 
     def __str__(self):
         return f"Choice {self.choice_text} Question {self.question}"
+
+
+class BaseModel(models.Model):
+    class Meta:
+        abstract = True
