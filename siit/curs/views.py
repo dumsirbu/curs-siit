@@ -11,7 +11,8 @@ def hello_world(request):
 def show_students(request):
     try:
         an_cerut = int(request.GET['an'])
-        lista_studenti = Student.objects.filter(an__lte=an_cerut)
+        nume = request.GET['nume']
+        lista_studenti = Student.objects.filter(an__lte=an_cerut, nume__startswith=nume)
     except KeyError:
         lista_studenti = Student.objects.all()
     context = {
