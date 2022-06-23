@@ -33,6 +33,8 @@ def show_students(request):
         #  Student.objects.delete() - va sterge toate intrarile
     lista_studenti = lista_studenti.order_by("-nume")
 
+    lista_studenti = Student.objects.boboci()
+    
     context = {
         'studenti': lista_studenti,
         'mesaj': 'Salut'

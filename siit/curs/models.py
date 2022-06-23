@@ -8,6 +8,11 @@ class Curs(models.Model):
     def __str__(self):
         return f"{self.nume} - {self.an}"
 
+class StudentManager(models.Manager):
+
+    def boboci(self):
+        return self.filter(an=1)
+
 class Student(models.Model):
     class Meta:
         unique_together = ("nume", "prenume")
@@ -19,6 +24,8 @@ class Student(models.Model):
     email = models.EmailField(unique=True)
     telefon = models.CharField(max_length=50, null=True)
     cursuri = models.ManyToManyField(Curs, through='Membership')
+    
+    objects = StudentManager()
 
     def __str__(self):
         return f"{self.nume} {self.email}"
