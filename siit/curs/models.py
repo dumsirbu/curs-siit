@@ -18,7 +18,7 @@ class Student(models.Model):
     an = models.IntegerField(default=1)
     email = models.EmailField(unique=True)
     telefon = models.CharField(max_length=50, null=True)
-    cursuri = models.ManyToManyField(Curs)
+    cursuri = models.ManyToManyField(Curs, through='Membership')
 
     def __str__(self):
         return f"{self.nume} {self.email}"
@@ -26,6 +26,10 @@ class Student(models.Model):
     def afiseaza_studenti(self):
         pass
 
+class Membership(models.Model):
+    course = models.ForeignKey(Curs, on_delete=models.CASCADE)
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    nota = models.IntegerField()
 
 class Question(models.Model):
     text = models.CharField(max_length=50)
