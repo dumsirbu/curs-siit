@@ -32,7 +32,7 @@ def hello_world(request):
         'obiect': obj,
         #'cheie': 'Valoare'
     }
-    return render(request, "hello.html", context)
+    return render(request, "homepage.html", context)
 
 
 def show_students(request):
