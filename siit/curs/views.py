@@ -1,6 +1,5 @@
-from django.db.models import Q
-from django.http import HttpResponse
 from django.shortcuts import render
+from django.utils import timezone
 
 from .models import Student, Curs
 
@@ -18,6 +17,7 @@ def hello_world(request):
     obj = MyObject(10)
 
     context = {
+        'time': timezone.now(),
         'string': "Salut",
         'lista': [1,2,3],
         'dictionar': {

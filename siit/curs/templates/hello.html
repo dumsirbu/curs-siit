@@ -10,11 +10,14 @@
         <br />
         {{ lista.1 }}
         <br />
+        {% comment %}
         {{ lista.50 }} <!-- lista[50]-->
+        {% endcomment %}
+
         <br />
         {{ dictionar }}
         <br />
-        {{ dictionar.unu}} <!-- dictionar["unu"] -->
+        {{ dictionar.unu | add:"5"}} <!-- dictionar["unu"] -->
         <br />
         {{ dictionar.trei}} <!-- dictionar["trei"]-->
         <br />
@@ -25,5 +28,8 @@
         {{ obiect.proprietate }}
         <br />
         {{ obiect.id }}
+        <br />
+
+        {{ time |date:"dd D m M Y" }}
     </body>
 </html>
