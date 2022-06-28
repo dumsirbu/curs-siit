@@ -40,7 +40,7 @@ def show_students(request):
         'mesaj': 'Salut'
     }
 
-    return render(request, "list_students.html", context)
+    return render(request, "lists/list_students.html", context)
 
 
 def show_curs(request):
@@ -52,4 +52,4 @@ def show_curs(request):
     context = {
         'studenti': studenti
     }
-    return render(request, "list_curs.html", context)
+    return render(request, "lists/list_curs.html", context)
