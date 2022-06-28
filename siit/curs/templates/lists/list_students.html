@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Studenti</title>
-    </head>
-    <body>
-        <div>
+{% extends "base.html" %}
+{% block content %}
            Lista Studenti - Aplicatia Curs
            <ol>
            {% for student in studenti %}
@@ -17,5 +12,4 @@
         <div>
             {{ mesaj }}
         </div>
-    </body>
-</html>
+{% endblock %}
