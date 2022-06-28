@@ -9,6 +9,14 @@ def hello_world(request):
     def my_func():
         return "salutare"
 
+    class MyObject:
+        proprietate = 1
+
+        def __init__(self, id):
+            self.id = id
+
+    obj = MyObject(10)
+
     context = {
         'string': "Salut",
         'lista': [1,2,3],
@@ -20,7 +28,8 @@ def hello_world(request):
             },
         
         },
-        'functie': my_func
+        'functie': my_func,
+        'obiect': obj
     }
     return render(request, "hello.html", context)
 

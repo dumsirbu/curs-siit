@@ -1,5 +1,11 @@
 <html>
     <body>
+        {% if request.user.is_authenticated %}
+          Salut, {{ request.user.first_name }} {{ request.user.last_name}}!
+        {% else %}
+          Neautentificat
+        {% endif %}
+        <br />
         {{ string }}
         <br />
         {{ lista.1 }}
@@ -15,5 +21,9 @@
         {{ dictionar.dict2.cheie }}
         <br />
         {{ functie }}
+        <br />
+        {{ obiect.proprietate }}
+        <br />
+        {{ obiect.id }}
     </body>
 </html>
