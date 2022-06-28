@@ -6,7 +6,11 @@ from .models import Student, Curs
 
 # Create your views here.
 def hello_world(request):
-    return HttpResponse("Hello World!")
+    context = {
+        'string': "Salut",
+        'lista': [1,2,3]
+    }
+    return render(request, "hello.html", context)
 
 
 def show_students(request):
