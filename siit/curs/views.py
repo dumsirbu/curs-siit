@@ -6,9 +6,21 @@ from .models import Student, Curs
 
 # Create your views here.
 def hello_world(request):
+    def my_func():
+        return "salutare"
+
     context = {
         'string': "Salut",
-        'lista': [1,2,3]
+        'lista': [1,2,3],
+        'dictionar': {
+            'unu': 1,
+            'doi': 2,
+            'dict2': {
+                'cheie': 'valoare'
+            },
+        
+        },
+        'functie': my_func
     }
     return render(request, "hello.html", context)
 
