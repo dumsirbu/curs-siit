@@ -31,5 +31,14 @@
         <br />
 
         {{ time |date:"dd D m M Y" }}
+
+
+        {{ cheie |default:"Nu exista"}}
+        
+        {% if cheie %} 
+          {{ cheie }}
+        {% else %}
+          Nu exista
+        {% endif %}
     </body>
 </html>

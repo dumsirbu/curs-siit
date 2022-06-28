@@ -29,7 +29,8 @@ def hello_world(request):
         
         },
         'functie': my_func,
-        'obiect': obj
+        'obiect': obj,
+        #'cheie': 'Valoare'
     }
     return render(request, "hello.html", context)
 
