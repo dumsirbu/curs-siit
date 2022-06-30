@@ -16,14 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from curs.views import hello_world, show_students, show_curs
+from curs.views import hello_world, show_students, show_curs, process_form
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('__debug__/', include('debug_toolbar.urls')),
     path('salut', hello_world),
     path('studenti', show_students),
-    path('curs', show_curs)
+    path('curs', show_curs),
+    path('process_form', process_form)
+
 ]
 
 

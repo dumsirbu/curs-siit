@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Demo form</title>
+    </head>
+    <body>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <input type="text" name="username" />
+            <input type="password" name="parola" />
+            <textarea name="text" rows="20" cols="40"></textarea>
+            <select name="selectie">
+                <option value="1">TM</option>
+                <option value="2" selected>AR</option>
+            </select>
+            <input type="checkbox" />
+            <input type="radio" />
+            
+            <input type="submit" />
+            <div>
+                <h1>Date primite</h1>
+                <h2>request.GET</h2>
+                {{ request.GET }}
+                <br />
+                <h2>request.POST</h2>
+                {{ request.POST }}
+            </div>
+        </form>
+    </body>
+</html>

@@ -79,3 +79,10 @@ def show_curs(request):
         'studenti': studenti
     }
     return render(request, "lists/list_curs.html", context)
+
+
+def process_form(request):
+    context= {
+        "username": request.GET.get("username")
+    }
+    return render(request, "form.html", context)
