@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 
 from .models import Student, Curs
@@ -113,6 +113,19 @@ def add_student(request):
             form.save()
     else:
         form = StudentForm()
+    context = {
+        "form": form
+    }
+    return render(request, "add_student.html", context)
+
+def edit_student(request, student_id):
+    student = get_object_or_404(Student, pk=student_id)
+    if request.method == "POST":
+        form = StudentForm(request.POST, instance=student)
+        if form.is_valid():
+            form.save()
+    else:   
+        form = StudentForm(instance=student)
     context = {
         "form": form
     }

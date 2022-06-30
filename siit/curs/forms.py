@@ -11,3 +11,4 @@ class StudentForm(forms.ModelForm):
     class Meta:
         model = Student
         exclude = ("cursuri", )
+    #altceva = forms.CharField(required=False, max_length=200)

@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from curs.views import hello_world, show_students, show_curs, process_form, contact, add_student
+from curs.views import hello_world, show_students, show_curs, process_form, contact, add_student, edit_student
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,7 +26,8 @@ urlpatterns = [
     path('curs', show_curs),
     path('process_form', process_form),
     path('contact', contact),
-    path('add_student', add_student)
+    path('add_student', add_student),
+    path('edit_student/<int:student_id>', edit_student)
 
 ]
 
