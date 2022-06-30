@@ -87,3 +87,12 @@ def process_form(request):
         "text": request.POST.get("text")
     }
     return render(request, "form.html", context)
+
+from .forms import ContactForm
+
+def contact(request):
+    contact = ContactForm()
+    context = {
+        "contact_form": contact
+    }
+    return render(request, "contact.html", context)
