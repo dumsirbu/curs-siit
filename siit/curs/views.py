@@ -103,3 +103,7 @@ def contact(request):
         "data": data
     }
     return render(request, "contact.html", context)
+
+def add_student(request):
+    context = {}
+    return render(request, "add_student.html", context)
