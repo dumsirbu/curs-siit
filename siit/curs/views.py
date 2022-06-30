@@ -104,6 +104,16 @@ def contact(request):
     }
     return render(request, "contact.html", context)
 
+from .forms import StudentForm
+
 def add_student(request):
-    context = {}
+    if request.method == "POST":
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = StudentForm()
+    context = {
+        "form": form
+    }
     return render(request, "add_student.html", context)
