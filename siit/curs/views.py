@@ -91,8 +91,15 @@ def process_form(request):
 from .forms import ContactForm
 
 def contact(request):
-    contact = ContactForm()
+    data = {}
+    if request.method == "POST":
+        contact = ContactForm(request.POST)
+        if contact.is_valid():
+            data = contact.cleaned_data
+    else:
+        contact = ContactForm()
     context = {
-        "contact_form": contact
+        "contact_form": contact,
+        "data": data
     }
     return render(request, "contact.html", context)

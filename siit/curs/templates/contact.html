@@ -5,5 +5,9 @@
             {{ contact_form.as_p }}
             <input type="submit" />
         </form>
+        {% if data %}
+        <h2>Data din form</h2>
+        {{ data }}
+        {% endif %}
     </body>
 </html>
