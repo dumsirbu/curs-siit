@@ -1,8 +1,22 @@
 <html>
+    <head>
+        <style type="text/css">
+            .red{
+                border: 1px solid red;
+            }
+        </style>
+    </head>
     <body>
         <form method="POST">
             {% csrf_token %}    
+            {% comment %}
             {{ contact_form.as_p }}
+            {% endcomment %}
+            {% for field in contact_form %}
+              {{ field.errors }}
+
+              {{field.label }} {{ field }}
+            {% endfor %}
             <input type="submit" />
         </form>
         {% if data %}
