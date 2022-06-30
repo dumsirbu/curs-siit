@@ -83,6 +83,7 @@ def show_curs(request):
 
 def process_form(request):
     context= {
-        "username": request.GET.get("username")
+        "username": request.GET.get("username"),
+        "text": request.POST.get("text")
     }
     return render(request, "form.html", context)
