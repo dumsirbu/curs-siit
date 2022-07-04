@@ -24,6 +24,7 @@ class StudentAdmin(admin.ModelAdmin):
     actions = (graduate, picat)
     change_list_template = "admin/change_list_student.html"
     # change view specific fields
+
     change_form_template = "admin/change_form_student.html"
     readonly_fields = ("an", )
     fieldsets = (
@@ -47,6 +48,10 @@ class StudentAdmin(admin.ModelAdmin):
         if request.user.username == "admin":
             qs = qs.filter(an=1)
         return qs
+
+    def save_model(self, request, obj, form, change,):
+        obj.nume = obj.nume.title()
+        return super().save_model(request, obj, form, change)
 
 admin.site.register(Student, StudentAdmin)
 
