@@ -18,10 +18,14 @@ def picat(modeladmin, request, queryset):
 class StudentAdmin(admin.ModelAdmin):
     list_display = ('nume', 'prenume', 'an', 'email')
     list_per_page = 10
-    list_filter = ('an',)
+    list_filter = ['an']
     search_fields = ('nume__startswith', )
     actions = (graduate, picat)
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if False:
+            self.list_filter.append('email')
     def get_queryset(self, request):
         qs = super().get_queryset(request)
         if request.user.username == "admin":
