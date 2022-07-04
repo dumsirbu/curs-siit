@@ -11,8 +11,9 @@ def graduate(modeladmin, request, queryset):
 @admin.action(description="Pica anul")
 def picat(modeladmin, request, queryset):
     for student in queryset:
-        student.an = student.an - 1
-        student.save()
+        if student.an > 1:
+            student.an = student.an - 1
+            student.save()
 
 class StudentAdmin(admin.ModelAdmin):
     list_display = ('nume', 'prenume', 'an', 'email')
