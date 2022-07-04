@@ -22,11 +22,13 @@ class StudentAdmin(admin.ModelAdmin):
     search_fields = ('nume__startswith', )
     actions = (graduate, picat)
     change_list_template = "admin/change_list_student.html"
+    change_form_template = "admin/change_form_student.html"
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         if False:
             self.list_filter.append('email')
+
     def get_queryset(self, request):
         qs = super().get_queryset(request)
         if request.user.username == "admin":
