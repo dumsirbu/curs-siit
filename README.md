@@ -6,5 +6,6 @@ source venv/bin/activate ( For Windows open a Powershell as administrator and ru
 cd curs-siit/siit
 pip install -r requirements.txt
 python manage.py migrate
+python manage.py createsuperuser
 python manage.py runserver
 ```
