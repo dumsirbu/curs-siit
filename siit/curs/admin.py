@@ -23,6 +23,8 @@ class StudentAdmin(admin.ModelAdmin):
     actions = (graduate, picat)
     change_list_template = "admin/change_list_student.html"
     change_form_template = "admin/change_form_student.html"
+    readonly_fields = ("an", )
+    
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
