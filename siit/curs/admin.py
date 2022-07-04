@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.db.models import F
 
 # Register your models here.
+from .forms import StudentForm
 from .models import Student, Curs, Question, Choice, Membership
 
 @admin.action(description='Promoveaza')
@@ -37,6 +38,7 @@ class StudentAdmin(admin.ModelAdmin):
             'classes': ['collapse']
         })
     )
+    form = StudentForm
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
