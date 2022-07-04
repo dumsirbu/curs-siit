@@ -21,6 +21,7 @@ class StudentAdmin(admin.ModelAdmin):
     list_filter = ['an']
     search_fields = ('nume__startswith', )
     actions = (graduate, picat)
+    change_list_template = "admin/change_list_student.html"
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
