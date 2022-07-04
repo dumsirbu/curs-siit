@@ -16,12 +16,14 @@ def picat(modeladmin, request, queryset):
             student.save()
 
 class StudentAdmin(admin.ModelAdmin):
+    # list view specific fields 
     list_display = ('nume', 'prenume', 'an', 'email')
     list_per_page = 10
     list_filter = ['an']
     search_fields = ('nume__startswith', )
     actions = (graduate, picat)
     change_list_template = "admin/change_list_student.html"
+    # change view specific fields
     change_form_template = "admin/change_form_student.html"
     readonly_fields = ("an", )
     fieldsets = (
