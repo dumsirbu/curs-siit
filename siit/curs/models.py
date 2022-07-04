@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.urls import reverse
 # Create your models here.
 class Curs(models.Model):
     nume = models.CharField(max_length=50)
@@ -34,6 +34,10 @@ class Student(models.Model):
     def afiseaza_studenti(self):
         pass
 
+    def get_absolute_url(self):
+        #url = f"/edit_student/{self.id}"
+        url = reverse("edit-student", args=(self.id, ))
+        return url
 class Membership(models.Model):
     course = models.ForeignKey(Curs, on_delete=models.CASCADE)
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
