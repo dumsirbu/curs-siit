@@ -19,7 +19,7 @@ from django.urls import path, include
 from curs.views import hello_world, show_students, show_curs, process_form, contact, add_student, edit_student
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('administrare/', admin.site.urls),
     path('__debug__/', include('debug_toolbar.urls')),
     path('salut', hello_world),
     path('studenti', show_students),
