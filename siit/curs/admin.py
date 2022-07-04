@@ -61,7 +61,8 @@ admin.site.register(Curs)
 
 class ChoiceInline(admin.TabularInline):
     model = Choice
-
+    max_num = 3
+    
 class QuestionAdmin(admin.ModelAdmin):
     inlines = (ChoiceInline, )
 
