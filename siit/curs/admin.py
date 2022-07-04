@@ -59,7 +59,12 @@ admin.site.register(Student, StudentAdmin)
 
 admin.site.register(Curs)
 
-admin.site.register(Question)
+class ChoiceInline(admin.TabularInline):
+    model = Choice
+
+class QuestionAdmin(admin.ModelAdmin):
+    inlines = (ChoiceInline, )
+
+admin.site.register(Question, QuestionAdmin)
 admin.site.register(Choice)
-admin.site.register(Membership)
 
