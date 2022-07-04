@@ -22,6 +22,12 @@ class StudentAdmin(admin.ModelAdmin):
     search_fields = ('nume__startswith', )
     actions = (graduate, picat)
 
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        if request.user.username == "admin":
+            qs = qs.filter(an=1)
+        return qs
+
 admin.site.register(Student, StudentAdmin)
 
 admin.site.register(Curs)
