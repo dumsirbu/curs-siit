@@ -24,7 +24,16 @@ class StudentAdmin(admin.ModelAdmin):
     change_list_template = "admin/change_list_student.html"
     change_form_template = "admin/change_form_student.html"
     readonly_fields = ("an", )
-    
+    fieldsets = (
+        ('Date personale', {
+            'fields': ['prenume', 'nume', 'an']
+        })
+        ,
+        ('Date de contact', {
+            'fields': ["email", "telefon"],
+            'classes': ['collapse']
+        })
+    )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
