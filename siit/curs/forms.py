@@ -19,3 +19,7 @@ class StudentForm(forms.ModelForm):
             raise forms.ValidationError("Trebuie sa inceapa cu litera mare")
         return prenume
     #altceva = forms.CharField(required=False, max_length=200)
+
+class LoginForm(forms.Form):
+    username = forms.CharField(max_length=200)
+    password = forms.CharField(max_length=200, widget=forms.PasswordInput)

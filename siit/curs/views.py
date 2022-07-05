@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 
 from .models import Student, Curs
+from .forms import LoginForm
 
 # Create your views here.
 def hello_world(request):
@@ -137,11 +138,25 @@ def session_data(request):
     context = {}
     return render(request, "sesiune.html", context)
 
+from django.contrib.auth import authenticate, login, logout
 
 def login_view(request):
-    context = {}
+    if request.method == "POST":
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(request, username=username, password=password)
+            if user:
+                login(request, user)
+                return redirect('/')
+    else:
+        form = LoginForm()
+    context = {
+        "form": form
+    }
     return render(request, "login.html", context)
 
 def logout_view(request):
-    
+    logout(request)
     return redirect('/')
