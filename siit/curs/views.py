@@ -130,3 +130,8 @@ def edit_student(request, student_id):
         "form": form
     }
     return render(request, "add_student.html", context)
+
+
+def session_data(request):
+    context = {}
+    return render(request, "sesiune.html", context)
