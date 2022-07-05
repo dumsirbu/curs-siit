@@ -134,7 +134,7 @@ def edit_student(request, student_id):
 
 
 def session_data(request):
-    request.session["view_count"] +=1
+    #request.session["view_count"]
     context = {}
     return render(request, "sesiune.html", context)
 
