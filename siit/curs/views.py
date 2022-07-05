@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 
 from .models import Student, Curs
@@ -136,3 +136,12 @@ def session_data(request):
     request.session["view_count"] +=1
     context = {}
     return render(request, "sesiune.html", context)
+
+
+def login_view(request):
+    context = {}
+    return render(request, "login.html", context)
+
+def logout_view(request):
+    
+    return redirect('/')
