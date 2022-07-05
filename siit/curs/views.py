@@ -1,10 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
+from django.views.decorators.cache import cache_page
+
 
 from .models import Student, Curs
 from .forms import LoginForm
 
 # Create your views here.
+@cache_page(30)
 def hello_world(request):
     def my_func():
         return "salutare"
@@ -33,6 +36,8 @@ def hello_world(request):
         'obiect': obj,
         #'cheie': 'Valoare'
     }
+    import time
+    time.sleep(5)
     return render(request, "homepage.html", context)
 
 
