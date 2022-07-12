@@ -34,7 +34,8 @@ urlpatterns = [
     path('editare-student/<int:student_id>', views.edit_student, name="edit-student"),
     path('sesiune', views.session_data),
     path('login', views.login_view),
-    path('logout', views.logout_view)
+    path('logout', views.logout_view),
+    path('api-view', views.api_view)
 
 ]
 

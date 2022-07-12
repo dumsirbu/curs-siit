@@ -172,3 +172,13 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('/')
+
+import json
+from django.http import HttpResponse
+
+def api_view(request):
+    response = {
+        'icon_url': 'https://google.com',
+        'data': 'foo'
+    }
+    return HttpResponse(json.dumps(response), content_type="application/json")
