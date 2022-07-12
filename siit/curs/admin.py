@@ -47,8 +47,8 @@ class StudentAdmin(admin.ModelAdmin):
 
     def get_queryset(self, request):
         qs = super().get_queryset(request)
-        if request.user.username == "admin":
-            qs = qs.filter(an=1)
+        # if request.user.username == "admin":
+        #     qs = qs.filter(an=1)
         return qs
 
     def save_model(self, request, obj, form, change,):

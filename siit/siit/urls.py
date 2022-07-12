@@ -38,6 +38,12 @@ urlpatterns = [
     path('api-view', views.api_view)
 
 ]
+from rest_framework.routers import SimpleRouter
+from curs import viewsets
+router = SimpleRouter()
+router.register("students", viewsets.StudentViewSet)
+
+urlpatterns += router.urls
 
 from django.contrib.staticfiles import views
 from django.urls import re_path
