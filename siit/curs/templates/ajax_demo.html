@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>AJAX Demo</title>
+    </head>
+    <script>
+        fetch("http://localhost:8000/students").then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+           let text = '';
+           for(i=0; i<data.length; i++){
+            text+=data[i].prenume+ "<br />";
+           }
+           document.getElementById("container").innerHTML = text;
+        console.log(data);
+    })
+    </script>
+    <body>
+        <div id="container">
+
+        </div>
+    </body>
+</html>

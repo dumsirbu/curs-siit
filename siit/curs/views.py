@@ -191,3 +191,6 @@ def api_view(request):
             'data': 'foo'
         }
     return HttpResponse(json.dumps(response), content_type="application/json")
+
+def ajax_demo(request):
+    return render(request, "ajax_demo.html", {})
