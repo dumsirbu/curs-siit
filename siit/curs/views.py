@@ -38,6 +38,13 @@ def hello_world(request):
     }
     import time
     time.sleep(5)
+
+    from django.core.cache import cache
+    value = cache.get("key")
+    if value is None:
+        value = 5
+        cache.set('key', value, 30)
+    print(value)
     return render(request, "homepage.html", context)
 
 
