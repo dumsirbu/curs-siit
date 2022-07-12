@@ -175,10 +175,19 @@ def logout_view(request):
 
 import json
 from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 
+@csrf_exempt
 def api_view(request):
-    response = {
-        'icon_url': 'https://google.com',
-        'data': 'foo'
-    }
+    if request.method == "POST":
+        response = {"method": "POST"}
+    if request.method == "PATCH":
+        response = {"method": "PATCH"}
+    if request.method == "DELETE":
+        response = {"method": "DELETE"}
+    else:
+        response = {
+            'icon_url': 'https://google.com',
+            'data': 'foo'
+        }
     return HttpResponse(json.dumps(response), content_type="application/json")
