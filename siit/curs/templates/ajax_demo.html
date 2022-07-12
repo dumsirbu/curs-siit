@@ -8,8 +8,9 @@
     })
     .then((data) => {
            let text = '';
-           for(i=0; i<data.length; i++){
-            text+=data[i].prenume+ "<br />";
+           for(i=0; i<data.results.length; i++){
+            let student = data.results[i];
+            text+="Nume:" + student.prenume+ "Email" + student.email + "<br />";
            }
            document.getElementById("container").innerHTML = text;
         console.log(data);
