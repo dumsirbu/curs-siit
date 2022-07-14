@@ -1,6 +1,6 @@
 from django.utils import timezone
 
-from rest_framework.serializers import HyperlinkedModelSerializer, SerializerMethodField
+from rest_framework.serializers import HyperlinkedModelSerializer, SerializerMethodField, ValidationError
 
 from .models import Curs, Student
 
@@ -13,9 +13,10 @@ class CursSerializer(HyperlinkedModelSerializer):
 class StudentSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = Student
-        fields = "__all__"
+        #fields = "__all__"
+        exclude = ('cursuri', )
 
-    cursuri = CursSerializer(many=True)
+    #cursuri = CursSerializer(many=True)
     timestamp = SerializerMethodField()
     full_name = SerializerMethodField()
 
@@ -24,3 +25,9 @@ class StudentSerializer(HyperlinkedModelSerializer):
 
     def get_full_name(self, obj):
         return f"{obj.nume} {obj.prenume}"
+
+    def validate_prenume(self, prenume):
+        if not prenume.title() == prenume:
+            raise ValidationError("Trebuie sa inceapa cu litera mare")
+        return prenume
+
