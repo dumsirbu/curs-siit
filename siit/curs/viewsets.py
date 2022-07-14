@@ -1,7 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 
-from .models import Student
-from .serializers import StudentSerializer
+from .models import Student, Curs
+from .serializers import StudentSerializer, CursSerializer
 
 class StudentViewSet(ModelViewSet):
     serializer_class = StudentSerializer
@@ -13,3 +13,7 @@ class StudentViewSet(ModelViewSet):
             an = int(self.request.GET['an'])
             return qs.filter(an=an)
         return qs
+
+class CursViewSet(ModelViewSet):
+    serializer_class = CursSerializer
+    queryset = Curs.objects.all()

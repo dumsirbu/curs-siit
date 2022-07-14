@@ -43,6 +43,7 @@ from rest_framework.routers import SimpleRouter
 from curs import viewsets
 router = SimpleRouter()
 router.register("students", viewsets.StudentViewSet)
+router.register("curs", viewsets.CursViewSet)
 
 urlpatterns += router.urls
 
