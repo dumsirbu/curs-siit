@@ -1,4 +1,4 @@
-from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import ModelSerializer, HyperlinkedModelSerializer
 
 from .models import Curs, Student
 
@@ -8,7 +8,7 @@ class CursSerializer(ModelSerializer):
         model = Curs
         fields = "__all__"
 
-class StudentSerializer(ModelSerializer):
+class StudentSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = Student
         fields = "__all__"
