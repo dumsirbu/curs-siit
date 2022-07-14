@@ -192,5 +192,8 @@ def api_view(request):
         }
     return HttpResponse(json.dumps(response), content_type="application/json")
 
+from django.contrib.auth.decorators import login_required
+
+@login_required
 def ajax_demo(request):
     return render(request, "ajax_demo.html", {})
