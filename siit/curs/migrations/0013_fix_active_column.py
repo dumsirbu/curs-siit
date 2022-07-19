@@ -5,9 +5,14 @@ from django.db import migrations
 
 def forwards(apps, models):
     print("inainte")
+    Student = apps.get_model("curs", "Student")
+    Student.objects.update(activ="Da")
+
 
 def backwards(apps, models):
     print("inapoi")
+    Student = apps.get_model("curs", "Student")
+    Student.objects.update(activ=None)
 
 class Migration(migrations.Migration):
 
