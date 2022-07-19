@@ -27,10 +27,10 @@ class StudentAdmin(admin.ModelAdmin):
     # change view specific fields
 
     change_form_template = "admin/change_form_student.html"
-    readonly_fields = ("an", )
+    readonly_fields = ("an", "activ" )
     fieldsets = (
         ('Date personale', {
-            'fields': ['prenume', 'nume', 'an']
+            'fields': ['prenume', 'nume', 'an', 'activ']
         })
         ,
         ('Date de contact', {
