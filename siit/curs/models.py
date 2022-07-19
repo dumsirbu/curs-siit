@@ -24,6 +24,7 @@ class Student(models.Model):
     email = models.EmailField(unique=True)
     telefon = models.CharField(max_length=50, null=True)
     cursuri = models.ManyToManyField(Curs, through='Membership')
+    activ = models.CharField(max_length=50, null=True)
     
     objects = StudentManager()
 
