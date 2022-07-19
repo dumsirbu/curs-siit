@@ -11,8 +11,8 @@ def forwards(apps, models):
 
 def backwards(apps, models):
     print("inapoi")
-    Student = apps.get_model("curs", "Student")
-    Student.objects.update(activ=None)
+    raise ValueError("Can't rollback") # can be bypassed if we call migrate with --fake
+
 
 class Migration(migrations.Migration):
 
