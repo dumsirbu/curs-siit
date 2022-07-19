@@ -1,4 +1,4 @@
-from django.core.management.base import BaseCommand
+from django.core.management.base import BaseCommand, CommandError
 from django.db.models import F
 
 from curs.models import Student
@@ -15,6 +15,8 @@ class Command(BaseCommand):
         if options['an'] is not None:
             queryset = queryset.filter(an=options['an'])
         rows_modified = queryset.update(an=F('an') + 1)
+        if rows_modified == 0:
+            raise CommandError("Nu am modificat nici un rand")
         print(f"Am modificat {rows_modified} studenti")
 
     def must_implement(self):
