@@ -1,15 +1,21 @@
 from django.core.management.base import BaseCommand
+from django.db.models import F
+
+from curs.models import Student
 
 class Command(BaseCommand):
 
     def add_arguments(self, parser):
         args = super().add_arguments(parser)
-        parser.add_argument('an', type=int)
+        parser.add_argument('--an', type=int, required=False)
         parser.add_argument('--dry-run', type=bool, required=False)
 
     def handle(self, *args, **options):
-        print("Args", args)
-        print("Kwargs", options)
+        queryset = Student.objects.all()
+        if options['an'] is not None:
+            queryset = queryset.filter(an=options['an'])
+        rows_modified = queryset.update(an=F('an') + 1)
+        print(f"Am modificat {rows_modified} studenti")
 
     def must_implement(self):
         raise NotImplementedError()
