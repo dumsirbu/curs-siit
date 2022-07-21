@@ -36,7 +36,8 @@ urlpatterns = [
     path('login', views.login_view, name="login"),
     path('logout', views.logout_view),
     path('api-view', views.api_view),
-    path('ajax-demo', views.ajax_demo)
+    path('ajax-demo', views.ajax_demo),
+    path('xss-demo', views.xss_demo),
 
 ]
 from rest_framework.routers import SimpleRouter

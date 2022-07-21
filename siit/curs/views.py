@@ -197,3 +197,11 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def ajax_demo(request):
     return render(request, "ajax_demo.html", {})
+
+def xss_demo(request):
+    context = {} 
+    if request.method == "POST":
+        text = request.POST["text"]
+        context["text"] = text
+
+    return render(request, "xss_demo.html", context)

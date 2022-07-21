@@ -1,0 +1,19 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <form method="POST">
+            {% csrf_token %}
+            <textarea name="text"></textarea>
+            <input type="submit" />
+        </form>
+        {% if text %}
+            {% autoescape off %}
+            <h1>Text din formular</h1>
+            <div>
+             {{ text }}
+             </div>
+             {% endautoescape %}
+        {% endif %}
+    </body>
+</html>
