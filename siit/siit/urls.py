@@ -38,7 +38,8 @@ urlpatterns = [
     path('api-view', views.api_view),
     path('ajax-demo', views.ajax_demo),
     path('xss-demo', views.xss_demo),
-    path('csrf-demo', views.csrf_demo)
+    path('csrf-demo', views.csrf_demo),
+    path('sql-demo', views.sql_injection_demo),
 
 ]
 from rest_framework.routers import SimpleRouter

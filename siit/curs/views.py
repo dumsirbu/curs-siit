@@ -219,3 +219,17 @@ def csrf_demo(request):
         form = TransferBancar()
     context["form"] = form
     return render(request, "csrf_demo.html", context)
+
+from django.db import connection
+
+def sql_injection_demo(request):
+    context = {}
+    nume = request.GET.get("nume", "")
+
+    sql = f"select * from curs_student where nume = '{nume}'"
+    print(sql)
+    with connection.cursor() as cursor:
+        cursor.execute(sql)
+        rows = cursor.fetchall()
+        context["rows"] = rows
+    return render(request, "sql_injection_demo.html", context)
