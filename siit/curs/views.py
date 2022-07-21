@@ -205,3 +205,17 @@ def xss_demo(request):
         context["text"] = text
 
     return render(request, "xss_demo.html", context)
+
+from .forms import TransferBancar
+
+
+def csrf_demo(request):
+    context = {}
+    if request.method == "POST":
+        form = TransferBancar(request.POST)
+        if form.is_valid():
+            context['transfer_done'] = True
+    else:
+        form = TransferBancar()
+    context["form"] = form
+    return render(request, "csrf_demo.html", context)

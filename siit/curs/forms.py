@@ -23,3 +23,8 @@ class StudentForm(forms.ModelForm):
 class LoginForm(forms.Form):
     username = forms.CharField(max_length=200)
     password = forms.CharField(max_length=200, widget=forms.PasswordInput)
+
+
+class TransferBancar(forms.Form):
+    iban_destinar = forms.CharField(max_length=30)
+    suma = forms.IntegerField()
