@@ -225,8 +225,16 @@ from django.db import connection
 def sql_injection_demo(request):
     context = {}
     nume = request.GET.get("nume", "")
-
+    an = request.GET.get("an", "")
     sql = f"select * from curs_student where nume = '{nume}'"
+    print(sql)
+    with connection.cursor() as cursor:
+        cursor.execute(sql)
+        rows = cursor.fetchall()
+        context["rows"] = rows
+
+    sql = f"update curs_student set an={an} where nume = '{nume}'"
+    # sql-demo?an=2&nume=Gigel' or an=5--
     print(sql)
     with connection.cursor() as cursor:
         cursor.execute(sql)
