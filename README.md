@@ -20,5 +20,6 @@ docker run -it -p 8000:8000 curs python manage.py runserver 0.0.0.0:8000
 sau
 
 ```
+cp .env.example .env
 docker compose up
 ```
