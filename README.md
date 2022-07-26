@@ -23,3 +23,10 @@ sau
 cp .env.example .env
 docker compose up
 ```
+
+Cand se fac modificari la Dockerfile sau requirements
+
+```
+docker compose build
+docker compose up
+```
