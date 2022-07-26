@@ -2,6 +2,8 @@ services:
   db:
     image: postgres:14
     env_file: .env
+  cache:
+    image: memcached
   web:
     build: .
     volumes:
@@ -11,5 +13,7 @@ services:
     env_file: .env
     links:
       - db
+      - cache
     depends_on:
       - db
+      - cache
