@@ -1,0 +1,6 @@
+FROM python:3.10
+RUN mkdir siit
+WORKDIR /siit
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+ADD . /siit
