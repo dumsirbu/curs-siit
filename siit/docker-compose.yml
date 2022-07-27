@@ -4,6 +4,8 @@ services:
     env_file: .env
   cache:
     image: memcached
+    deploy:
+      replicas: 4
   web:
     build: .
     volumes:
