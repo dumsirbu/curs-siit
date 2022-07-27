@@ -241,3 +241,6 @@ def sql_injection_demo(request):
         rows = cursor.fetchall()
         context["rows"] = rows
     return render(request, "sql_injection_demo.html", context)
+
+def healthcheck(request):
+    return HttpResponse(request.META["SERVER_NAME"])

@@ -40,6 +40,7 @@ urlpatterns = [
     path('xss-demo', views.xss_demo),
     path('csrf-demo', views.csrf_demo),
     path('sql-demo', views.sql_injection_demo),
+    path('healthcheck', views.healthcheck),
 
 ]
 from rest_framework.routers import SimpleRouter
