@@ -5,7 +5,7 @@ services:
   cache:
     image: memcached
     deploy:
-      replicas: 2
+      replicas: 1
   web:
     build: .
     volumes:
@@ -14,7 +14,8 @@ services:
       - 8000
     env_file: .env
     deploy:
-      replicas: 6
+      replicas: 1
+    command: local-server
     links:
       - db
       - cache
