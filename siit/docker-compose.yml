@@ -13,9 +13,13 @@ services:
     expose:
       - 8000
     env_file: .env
-    deploy:
-      replicas: 1
+    # deploy:
+    #   replicas: 2
     command: local-server
+    # For remote debugging 
+    # use docker attach <container_name>
+    tty: true
+    stdin_open: true
     links:
       - db
       - cache
