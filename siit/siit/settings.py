@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'curs',
     'curs2',
     'debug_toolbar',
-    'rest_framework'
+    'rest_framework',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
