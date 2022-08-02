@@ -1,4 +1,5 @@
 {% load static %}
+{% load debugger_tags %}
 <html>
     <head>
         <style type="text/css">
@@ -15,7 +16,7 @@
             {{ contact_form.as_p }}
             {% endcomment %}
             {% for field in contact_form %}
-              {{ field.errors }}
+              {{ field.errors | ipdb }}
 
               {{field.label }} {{ field }}
             {% endfor %}
